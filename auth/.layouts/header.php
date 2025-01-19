@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  $notification = $_SESSION['notification'] ?? null;
+  if ($notification) {
+    unset($_SESSION['notification']);
+  }
+?>
+// kode HTML lainnya
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
