@@ -17,7 +17,6 @@
     header('location: ../dashboard.php');
   }
 ?>
-// kode HTML lainnya
 
 <!DOCTYPE html>
 <html lang="en">
