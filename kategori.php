@@ -8,7 +8,7 @@ include '.includes/toast_notification.php';
 <div class="container-xxl flex-grow-1 container-p-y">
 
     <div class="card">
-        </div class="card-header d-flex justify-content-betwen align-items-center">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h4>Data Kategori<h4>
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">
@@ -81,7 +81,7 @@ include '.includes/toast_notification.php';
                         </div>
                     </div>
                     <!-- modal untuk update data kategori -->
-                    <div id="editCategory_<?= $category['category_id']; ?>" class="modalfade" tabindex="-1" aria-hidden="true">
+                    <div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -91,7 +91,7 @@ include '.includes/toast_notification.php';
                                 <div class="modal-body">
                                     <form action="proses_kategori.php" method="POST">
                                         <!-- Input tersembunyi untuk menyimpan ID kategori -->
-                                        <input type="hidden" name="catID" value="<?=$category['category_id']; ?>">
+                                        <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
                                         <div class="form-group">
                                             <label>Nama Kategori</label>
                                             <!-- Input untuk nama kategori -->
@@ -116,7 +116,7 @@ include '.includes/toast_notification.php';
 <?php include '.includes/footer.php'; ?>
 
 <!-- modal untuk tambah data kategori -->
-<div class="modal fade" id="addCategory" tabinex="-1" aria-hidden="true">
+<div class="modal fade" id="addCategory" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
