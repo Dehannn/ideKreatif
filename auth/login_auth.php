@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }   else {
 
-            $_SESSION['notificastion'] = [
+            $_SESSION['notification'] = [
                 'type' => 'danger',
                 'message' => 'Username atau Password Salah'
             ];
