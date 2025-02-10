@@ -35,7 +35,7 @@ include '.includes/toast_notification.php';
                     while ($category = mysqli_fetch_assoc($exec)) :
                     ?>
                     <tr>
-
+ 
                         <td><?= $index++; ?></td>
                         <td><?= $category['category_name']; ?></td>
                         <td>
