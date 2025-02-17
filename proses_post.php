@@ -12,11 +12,11 @@ $userId = $_SESSION["user_id"];
 if (isset($_POST['simpan'])) {
     // Mendapatkan data dari form
     $postTitle = $_POST["post_title"]; // Judul postingan
-    $content = $_POST["content"]; // Konten postingan
+    $content = $_POST["content"]; // Konten posting an
     $categoryId = $_POST["category_id"]; // ID kategori
 
     // Mengatur direktori penyimpanan file gambar
-    $imageDir = "blog/assets/img/uploads/";
+    $imageDir = "assets/img/uploads";
     $imageName = $_FILES["image"]["name"]; // Nama file gambar
     $imagePath = $imageDir . basename($imageName); // Path lengkap gambar
 
@@ -24,9 +24,9 @@ if (isset($_POST['simpan'])) {
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
         // Jika unggahan berhasil, masukkan
         // data postingan ke dalam database
-        $query = "INSERT INTO posts (post_title, content, 
-        created_at, category_id, user_id, image_path) VALUES 
-        ('$postTitle', '$content', NOW(), $categoryId, ".$_SESSION['user_id'].", '$imagePath')";
+        $query = "INSERT INTO posts (post_title, content,
+        created_at, category_id, user_id, image_path) VALUES
+        ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
         if ($conn->query($query) === TRUE) {
             // Notifikasi berhasil jika postingan berhasil ditambahkan
@@ -38,7 +38,7 @@ if (isset($_POST['simpan'])) {
             // Notifikasi error jika gagal menambahkan postingan
             $_SESSION['notification'] = [
                 'type' => 'danger',
-                'message' => 'error adding post: ' . $conn->error
+                'message' => 'Error adding post: ' . $conn->error
             ];
         }
     } else {
